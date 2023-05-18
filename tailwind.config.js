@@ -36,3 +36,10 @@ export default {
   plugins: [require("daisyui")],
 }
 
+/* 
+#ffffff
+#eb212e
+#ea454c
+#e96a6a
+#e88f89
+*/
