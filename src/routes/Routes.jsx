@@ -6,9 +6,9 @@ import PageNotFound from '../layout/PageNotFound/PageNotFound';
 import Login from '../pages/Login/login';
 import Register from '../pages/Register/Register/Register';
 import Terms from '../pages/Register/Terms/Terms';
-import Blog from '../pages/Blog/Blog';
 import About from '../pages/About/About';
 import Contact from '../pages/Contact/Contact';
+import Blogs from '../pages/Blogs/Blogs';
 
 const router = createBrowserRouter([
     {
@@ -32,8 +32,9 @@ const router = createBrowserRouter([
                 element: <Terms></Terms>
             },
             {
-                path: '/blog',
-                element: <Blog></Blog>
+                path: '/blogs',
+                element: <Blogs></Blogs>,
+                loader: () => fetch('/blog.json')
             },
             {
                 path: '/about',

@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "image": "https://i.postimg.cc/6qM96FkP/people-1.png",
+    "profession": "Web Developer",
+    "published_date": "18th May 2023",
+    "blog_title": "What is an access token and refresh token? How do they work and where should we store them on the client-side?",
+    "blog_description": "An access token is a short-lived credential that is issued to a user after successful authentication. It contains information about the user's identity and permissions and is used to authorize requests to access protected resources. Access tokens are typically included in the request headers or as query parameters. For access tokens, it is common to store them in memory or a short-lived storage mechanism, such as browser cookies or local storage. A refresh token is a long-lived credential that is also issued during authentication. Unlike the access token, it is not used directly to access resources. Instead, it is used to obtain a new access token when the current one expires. When the access token expires, the client can send the refresh token to a token endpoint to request a new access token without requiring the user to re-authenticate. Refresh tokens should be stored in a more secure location, such as an HTTP-only cookie or secure server-side storage.",
+    "read_time": "8 mins",
+    "tags": ["Access_Token", "Refresh_Token"]
+  },
+  {
+    "id": 2,
+    "name": "Jon Smith",
+    "image": "https://i.postimg.cc/3Jw8fJpQ/people-2.png",
+    "profession": "Front-End Developer",
+    "published_date": "17th May 2023",
+    "blog_title": "Compare SQL and NoSQL databases?",
+    "blog_description": "SQL databases are vertically scalable, while NoSQL databases are horizontally scalable. SQL databases are table-based, while NoSQL databases are document, key-value, graph, or wide-column stores. SQL databases are better for multi-row transactions, while NoSQL is better for unstructured data like documents or JSON.",
+    "read_time": "3 mins",
+    "tags": ["SQL", "NoSQL"]
+  },
+  {
+    "id": 3,
+    "name": "Alex Johnson",
+    "image": "https://i.postimg.cc/jqcqhJDh/people-3.png",
+    "profession": "Full-Stack Developer",
+    "published_date": "16th May 2023",
+    "blog_title": "What is express js? What is Nest JS?",
+    "blog_description": "Express.js is a minimalistic and flexible web application framework for Node.js. It simplifies the process of handling HTTP requests, routing, middleware integration, and rendering responses. Express.js is known for its simplicity and unopinionated nature, allowing developers to structure their applications as they prefer. Nest.js, on the other hand, is a progressive Node.js framework built with TypeScript. It takes inspiration from Angular's architecture and provides a modular and structured approach to building server-side applications. Nest.js uses decorators, dependency injection, and modules to organize different parts of an application. It offers built-in support for features like routing, dependency injection, middleware, and authentication, making it suitable for large-scale applications or microservices.",
+    "read_time": "7 mins",
+    "tags": ["Express_JS", "Nest_JS"]
+  },
+  {
+    "id": 4,
+    "name": "David Jhonson",
+    "image": "https://i.postimg.cc/3JbKs5C4/people-5.png",
+    "profession": "Back-End Developer",
+    "published_date": "15th May 2023",
+    "blog_title": "What is MongoDB aggregate and how does it work?",
+    "blog_description": "MongoDB's aggregate is a powerful feature that allows you to perform advanced data analysis and transformation operations on data stored in a MongoDB database. It works by processing documents through a pipeline of stages, where each stage performs a specific operation on the input documents and passes the results to the next stage. Stages can perform tasks such as filtering, grouping, sorting, projecting, and aggregating data using a variety of operators. The aggregation framework enables complex queries, computations, and transformations, making it useful for data analysis and reporting tasks in MongoDB.",
+    "read_time": "5 mins",
+    "tags": ["MongoDb", "Database"]
+  }
+]
