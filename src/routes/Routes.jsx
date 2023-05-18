@@ -6,6 +6,9 @@ import PageNotFound from '../layout/PageNotFound/PageNotFound';
 import Login from '../pages/Login/login';
 import Register from '../pages/Register/Register/Register';
 import Terms from '../pages/Register/Terms/Terms';
+import Blog from '../pages/Blog/Blog';
+import About from '../pages/About/About';
+import Contact from '../pages/Contact/Contact';
 
 const router = createBrowserRouter([
     {
@@ -27,6 +30,18 @@ const router = createBrowserRouter([
             {
                 path: '/terms',
                 element: <Terms></Terms>
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
+            },
+            {
+                path: '/about',
+                element: <About></About>
+            },
+            {
+                path: '/contact',
+                element: <Contact></Contact>
             }
         ]
     },

@@ -6,10 +6,9 @@ import Footer from '../../pages/shared/Footer/Footer';
 const Main = () => {
     return (
         <div>
-            <h2>Main</h2>
             <NavigationBar></NavigationBar>
             <Outlet></Outlet>
-            <Footer></Footer>
+            {/* <Footer></Footer> */}
         </div>
     );
 };

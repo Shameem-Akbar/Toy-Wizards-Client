@@ -1,0 +1,9 @@
+.active {
+    color: white;
+    text-decoration: none;
+}
+
+.de-active {
+    color: #ea454c;
+    text-decoration: none;
+}
