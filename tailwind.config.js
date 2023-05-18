@@ -12,7 +12,7 @@ export default {
       {
         mytheme: {
 
-          "primary": "#9ff4bf",
+          "primary": "#eb212e",
 
           "secondary": "#ffffff",
 
