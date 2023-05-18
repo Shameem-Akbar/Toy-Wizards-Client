@@ -10,7 +10,7 @@ const PageNotFound = () => {
             </div>
             <div className='flex justify-center'>
                 <Link to='/home'>
-                    <button className='btn btn-primary btn-wide text-white text-lg font-semibold'><FaArrowLeft className='mr-1'></FaArrowLeft>Go To Home</button>
+                    <button className='btn btn-primary btn-wide text-white text-lg font-semibold'><FaArrowLeft className='mr-1'></FaArrowLeft>Back To Home</button>
                 </Link>
             </div>
         </div>
