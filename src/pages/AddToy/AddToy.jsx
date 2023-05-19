@@ -11,9 +11,17 @@ const AddToy = () => {
     const { user } = useContext(AuthContext);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = (data, e) => {
-        alert('done')
+        alert('done');
         e.target.reset();
+        fetch("http://localhost:5000/seller-toys", {
+            method: 'POST',
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
     }
+
     return (
         <HelmetProvider>
             <div>
