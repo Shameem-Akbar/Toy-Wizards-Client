@@ -1,12 +1,15 @@
 import React from 'react';
 import PageTitle from '../../../components/PageTitle/PageTitle';
+import { HelmetProvider } from 'react-helmet-async';
 
 const Terms = () => {
     return (
-        <div>
-            <PageTitle title="Terms & Conditions"></PageTitle>
-            <h2>Terms</h2>
-        </div>
+        <HelmetProvider>
+            <div>
+                <PageTitle title="Terms & Conditions"></PageTitle>
+                <h2>Terms</h2>
+            </div>
+        </HelmetProvider>
     );
 };
 
