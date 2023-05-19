@@ -3,6 +3,7 @@ import logo from '../../../assets/icons/logo.png'
 import { Link } from 'react-router-dom';
 import ActiveLink from './ActiveLink/ActiveLink';
 import { AuthContext } from '../../../providers/AuthProvider';
+import { Tooltip } from 'react-tooltip';
 
 const NavigationBar = () => {
 
@@ -56,8 +57,12 @@ const NavigationBar = () => {
                     user ?
                         <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
+                                <div className="w-10 rounded-full" data-tooltip-id="my-tooltip"
+                                    data-tooltip-content={user.displayName}>
                                     <img src={user.photoURL} />
+                                    <Tooltip
+                                        id="my-tooltip"
+                                        style={{ backgroundColor: "#eb212e", color: "white" }} />
                                 </div>
                             </label>
                             <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
