@@ -1,13 +1,39 @@
 import React, { useState } from 'react';
 import { FaEye } from 'react-icons/fa';
 import { BsPin, BsPinFill } from "react-icons/bs"
+import Swal from 'sweetalert2';
 const BlogCard = ({ blog }) => {
 
-    const { name, image, profession, published_date, blog_title, blog_description, read_time, tags } = blog
+    const { id, name, image, profession, published_date, blog_title, blog_description, read_time, tags } = blog
     const [changePin, setChangePin] = useState(true);
+    const [clickCount, setClickCount] = useState(0);
 
-    const handlePin = () => {
+    const handlePin = (id) => {
         setChangePin(!changePin);
+        setClickCount(clickCount + 1);
+    }
+
+    const showAlert = () => {
+        if (clickCount % 2 === 0) {
+            Swal.fire(
+                {
+                    icon: 'success',
+                    title: 'Post is Pinned',
+                    timer: '1500',
+                    showConfirmButton: false,
+                }
+            );
+        }
+        else if (clickCount % 2 !== 0) {
+            Swal.fire(
+                {
+                    icon: 'success',
+                    title: 'Post is Unpinned',
+                    timer: '1500',
+                    showConfirmButton: false,
+                }
+            )
+        }
     }
 
     return (
@@ -48,8 +74,8 @@ const BlogCard = ({ blog }) => {
                                 </div>
                             </div>
                             {changePin ?
-                                <BsPin onClick={handlePin} className='mt-2 text-2xl'></BsPin> :
-                                <BsPinFill onClick={handlePin} className='mt-2 text-2xl text-primary'></BsPinFill>}
+                                <BsPin onClick={() => { handlePin(id), showAlert() }} className='mt-2 text-2xl'></BsPin> :
+                                <BsPinFill onClick={() => { handlePin(id), showAlert() }} className='mt-2 text-2xl text-primary'></BsPinFill>}
                         </div>
                     </div>
                     <div className='w-full mt-2'>
