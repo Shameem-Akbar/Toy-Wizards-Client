@@ -10,7 +10,10 @@ const AddToy = () => {
 
     const { user } = useContext(AuthContext);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = (data, e) => {
+        alert('done')
+        e.target.reset();
+    }
     return (
         <HelmetProvider>
             <div>
@@ -44,9 +47,9 @@ const AddToy = () => {
                                     <span className="label-text text-base font-semibold">Sub Category</span>
                                 </label>
                                 <select className="select select-bordered" {...register("subCategory")}>
-                                    <option value="star">Star Wars</option>
-                                    <option value="star2">Harry Potter</option>
-                                    <option value="star3">Lord of the Rings</option>
+                                    <option value="marvel">Marvel</option>
+                                    <option value="avengers">Avengers</option>
+                                    <option value="transformers">Transformers</option>
                                 </select>
                             </div>
                             <div className="form-control">
