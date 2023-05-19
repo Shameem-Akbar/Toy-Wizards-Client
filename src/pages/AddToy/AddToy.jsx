@@ -11,7 +11,14 @@ const AddToy = () => {
     const { user } = useContext(AuthContext);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = (data, e) => {
-        alert('done');
+        Swal.fire(
+            {
+                icon: 'success',
+                title: 'Toy is added',
+                timer: '2000',
+                showConfirmButton: false,
+            }
+        )
         e.target.reset();
         fetch("http://localhost:5000/seller-toys", {
             method: 'POST',
