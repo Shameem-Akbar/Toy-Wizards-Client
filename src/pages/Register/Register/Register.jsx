@@ -6,12 +6,15 @@ import register from '../../../assets/icons/register.svg'
 import { HelmetProvider } from 'react-helmet-async';
 import { AuthContext } from '../../../providers/AuthProvider';
 import Swal from 'sweetalert2';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Register = () => {
     const [show, setShow] = useState(false);
     const [error, setError] = useState("")
 
-    const { createUser, profileUpdate } = useContext(AuthContext);
+    const { createUser, profileUpdate, handleGoogleLogin, setUser } = useContext(AuthContext);
+
+    const googleProvider = new GoogleAuthProvider();
 
     const handleRegister = event => {
         event.preventDefault();
@@ -54,6 +57,15 @@ const Register = () => {
             })
     }
 
+    const handleGoogleSignIn = () => {
+        handleGoogleLogin(googleProvider)
+            .then(result => {
+                const loggedInUser = result.user;
+                // navigate(from, {replace: true});
+                setUser(loggedInUser);
+            })
+            .catch(error => console.log(error))
+    }
 
 
     return (
@@ -119,7 +131,7 @@ const Register = () => {
                                 <span className='px-2 text-slate-500'>OR</span>
                                 <hr style={{ width: '50%', borderBottom: '1px solid black' }} />
                             </div>
-                            <button type="submit" className="mt-2 w-full btn btn-info rounded-full text-white">
+                            <button onClick={handleGoogleSignIn} type="submit" className="mt-2 w-full btn btn-info rounded-full text-white">
                                 <ImGoogle3 className='mr-2 text-xl'></ImGoogle3> Login with Google
                             </button>
                             <p className='text-center mt-2'><small>Already have an account? <span className='text-primary font-semibold underline'>

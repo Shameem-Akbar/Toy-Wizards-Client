@@ -24,8 +24,14 @@ const NavigationBar = () => {
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 shadow bg-base-100 rounded w-52">
                         <li className="hover-bordered uppercase"><ActiveLink to='/home'>Home</ActiveLink></li>
                         <li className="hover-bordered uppercase"><ActiveLink to='/all-toys'>All Toys</ActiveLink></li>
-                        <li className="hover-bordered uppercase"><ActiveLink to='/my-toys'>My Toys</ActiveLink></li>
-                        <li className="hover-bordered uppercase"><ActiveLink to='/add-a-toy'>Add A Toy</ActiveLink></li>
+                        {
+                            user &&
+                            <li className="hover-bordered uppercase"><ActiveLink to='/my-toys'>My Toys</ActiveLink></li>
+                        }
+                        {
+                            user &&
+                            <li className="hover-bordered uppercase"><ActiveLink to='/add-a-toy'>Add A Toy</ActiveLink></li>
+                        }
                         <li className="hover-bordered uppercase"><ActiveLink to='/blogs'>Blogs</ActiveLink></li>
                         <li className="hover-bordered uppercase"><ActiveLink to='/about'>About</ActiveLink></li>
                         <li className="hover-bordered uppercase"><ActiveLink to='/contact'>Contact</ActiveLink></li>
@@ -37,8 +43,14 @@ const NavigationBar = () => {
                 <ul className="menu menu-horizontal px-1">
                     <li className='font-semibold text-lg uppercase'><ActiveLink to='/home'>Home</ActiveLink></li>
                     <li className='font-semibold text-lg uppercase'><ActiveLink to='/all-toys'>All Toys</ActiveLink></li>
-                    <li className='font-semibold text-lg uppercase'><ActiveLink to='/my-toys'>My Toys</ActiveLink></li>
-                    <li className='font-semibold text-lg uppercase'><ActiveLink to='/add-a-toy'>Add A Toy</ActiveLink></li>
+                    {
+                        user &&
+                        <li className='font-semibold text-lg uppercase'><ActiveLink to='/my-toys'>My Toys</ActiveLink></li>
+                    }
+                    {
+                        user &&
+                        <li className='font-semibold text-lg uppercase'><ActiveLink to='/add-a-toy'>Add A Toy</ActiveLink></li>
+                    }
                     <li className='font-semibold text-lg uppercase'><ActiveLink to='/blogs'>Blogs</ActiveLink></li>
                     <li className='font-semibold text-lg uppercase'><ActiveLink to='/about'>About</ActiveLink></li>
                     <li className='font-semibold text-lg uppercase'><ActiveLink to='/contact'>Contact</ActiveLink></li>
@@ -62,7 +74,7 @@ const NavigationBar = () => {
                                     <img src={user.photoURL} />
                                     <Tooltip
                                         id="my-tooltip"
-                                        style={{ backgroundColor: "#eb212e", color: "white" }} />
+                                        style={{ backgroundColor: "black", color: "white" }} />
                                 </div>
                             </label>
                             <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">

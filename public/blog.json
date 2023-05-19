@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "John Doe",
-    "image": "https://i.postimg.cc/6qM96FkP/people-1.png",
+    "image": "https://i.postimg.cc/XYmQQzQR/image1.png",
     "profession": "Web Developer",
     "published_date": "18th May 2023",
     "blog_title": "What is an access token and refresh token? How do they work and where should we store them on the client-side?",
@@ -13,7 +13,7 @@
   {
     "id": 2,
     "name": "Jon Smith",
-    "image": "https://i.postimg.cc/3Jw8fJpQ/people-2.png",
+    "image": "https://i.postimg.cc/65HHG3R5/image2.png",
     "profession": "Front-End Developer",
     "published_date": "17th May 2023",
     "blog_title": "Compare SQL and NoSQL databases?",
@@ -24,7 +24,7 @@
   {
     "id": 3,
     "name": "Alex Johnson",
-    "image": "https://i.postimg.cc/jqcqhJDh/people-3.png",
+    "image": "https://i.postimg.cc/y8kLhHXh/image3.png",
     "profession": "Full-Stack Developer",
     "published_date": "16th May 2023",
     "blog_title": "What is express js? What is Nest JS?",
@@ -34,8 +34,8 @@
   },
   {
     "id": 4,
-    "name": "David Jhonson",
-    "image": "https://i.postimg.cc/3JbKs5C4/people-5.png",
+    "name": "David Jhon",
+    "image": "https://i.postimg.cc/SNQTs8nv/image4.png",
     "profession": "Back-End Developer",
     "published_date": "15th May 2023",
     "blog_title": "What is MongoDB aggregate and how does it work?",

@@ -1,15 +1,19 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import { ImGoogle3 } from 'react-icons/im';
 import { Link } from 'react-router-dom';
 import loginImg from '../../assets/icons/login.svg'
 import { HelmetProvider } from 'react-helmet-async';
 import { AuthContext } from '../../providers/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const [show, setShow] = useState(false);
 
-    const { login } = useContext(AuthContext)
+    const { login, handleGoogleLogin, setUser, passwordReset } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
+    const emailRef = useRef()
 
     const handleLogin = event => {
         event.preventDefault();
@@ -26,6 +30,43 @@ const Login = () => {
             .catch(error => console.log(error))
     }
 
+    const handleGoogleSignIn = () => {
+        handleGoogleLogin(googleProvider)
+            .then(result => {
+                const loggedInUser = result.user;
+                // navigate(from, {replace: true});
+                setUser(loggedInUser);
+            })
+            .catch(error => console.log(error))
+    }
+
+    const handlePasswordReset = () => {
+        const email = emailRef.current.value;
+        passwordReset(email)
+            .then(() => {
+                Swal.fire(
+                    {
+                        icon: 'success',
+                        title: 'Password Reset Email Sent!',
+                        timer: '2000',
+                        showConfirmButton: false,
+                    }
+                )
+            })
+            .catch(error => {
+                if ((error.message.split(' ')[2])) {
+                    Swal.fire(
+                        {
+                            icon: 'error',
+                            title: 'Enter Your Email Address!',
+                            timer: '2000',
+                            showConfirmButton: false,
+                        }
+                    )
+                }
+            })
+    }
+
     return (
         <HelmetProvider>
             <div className='py-8 md:py-20 bg-slate-50'>
@@ -40,13 +81,12 @@ const Login = () => {
                         <div className="p-12 bg-white mx-auto rounded-2xl w-100 ">
                             <div className="mb-4">
                                 <h3 className="font-semibold text-4xl text-gray-800 text-center">Login</h3>
-
                             </div>
                             <form onSubmit={handleLogin}>
                                 <div className="space-y-2">
                                     <div className="space-y-2">
                                         <label className="text-md font-medium text-gray-700 tracking-wide">Email</label>
-                                        <input className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-gray-400" type="email" name='email' placeholder="Enter your email" required />
+                                        <input className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-gray-400" type="email" name='email' placeholder="Enter your email" required ref={emailRef} />
                                     </div>
                                     <div>
                                         <div className='flex justify-between mb-2'>
@@ -72,7 +112,7 @@ const Login = () => {
                                                 Remember me
                                             </label>
                                         </div>
-                                        <div className="text-sm">
+                                        <div onClick={handlePasswordReset} className="text-sm">
                                             <a href="#" className="text-primary hover:text-red-600 font-medium">
                                                 Forgot password?
                                             </a>
@@ -90,7 +130,7 @@ const Login = () => {
                                 <span className='px-2 text-slate-500'>OR</span>
                                 <hr style={{ width: '50%', borderBottom: '1px solid black' }} />
                             </div>
-                            <button type="submit" className="mt-2 w-full btn btn-info rounded-full text-white">
+                            <button onClick={handleGoogleSignIn} type="submit" className="mt-2 w-full btn btn-info rounded-full text-white">
                                 <ImGoogle3 className='mr-2 text-xl'></ImGoogle3> Login with Google
                             </button>
                             <p className='text-center mt-2'><small>Don&apos;t have an account? <span className='text-primary font-semibold underline'>
