@@ -34,7 +34,7 @@ const NavigationBar = () => {
                     <li className='font-semibold text-lg uppercase'><ActiveLink to='/all-toys'>All Toys</ActiveLink></li>
                     <li className='font-semibold text-lg uppercase'><ActiveLink to='/my-toys'>My Toys</ActiveLink></li>
                     <li className='font-semibold text-lg uppercase'><ActiveLink to='/add-a-toy'>Add A Toy</ActiveLink></li>
-                    <li className='font-semibold text-lg uppercase'><ActiveLink to='/blogs'>Blog</ActiveLink></li>
+                    <li className='font-semibold text-lg uppercase'><ActiveLink to='/blogs'>Blogs</ActiveLink></li>
                     <li className='font-semibold text-lg uppercase'><ActiveLink to='/about'>About</ActiveLink></li>
                     <li className='font-semibold text-lg uppercase'><ActiveLink to='/contact'>Contact</ActiveLink></li>
                 </ul>
