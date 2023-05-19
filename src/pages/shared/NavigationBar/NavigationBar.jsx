@@ -10,7 +10,7 @@ const NavigationBar = () => {
     }
 
     return (
-        <div className="navbar bg-base-100 px-2 lg:px-20 py-2 md:py-5">
+        <div className="navbar bg-slate-50 px-2 lg:px-20 py-2 md:py-5 border-b">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

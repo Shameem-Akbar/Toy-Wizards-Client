@@ -7,11 +7,12 @@ import login from '../../assets/icons/login.svg'
 const Login = () => {
     const [show, setShow] = useState(false);
     return (
-        <div className='py-8 md:py-20 '>
+        <div className='py-8 md:py-20 bg-slate-50'>
+            <PageTitle title="Login"></PageTitle>
             <div className="flex flex-row justify-center">
                 <div className="flex-col hidden md:flex self-center px-10 sm:max-w-5xl md:max-w-xl">
                     <div className="  ">
-                        <img width={"800rem"} src={login} />
+                        <img width={"490rem"} src={login} />
                     </div>
                 </div>
                 <div className="flex justify-center self-center rounded-2xl border shadow-lg">
