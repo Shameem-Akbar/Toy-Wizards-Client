@@ -22,10 +22,9 @@ const MyToys = () => {
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
-            icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: '#E60000',
+            cancelButtonColor: '#5a5a5a',
             confirmButtonText: 'Confirm Delete'
         })
             .then((result) => {
@@ -48,6 +47,10 @@ const MyToys = () => {
                         });
                 }
             })
+    }
+
+    const handleUpdateToy = id => {
+
     }
 
     return (
@@ -80,6 +83,7 @@ const MyToys = () => {
                                 toy={toy}
                                 index={index}
                                 handleToyDelete={handleToyDelete}
+                                handleUpdateToy={handleUpdateToy}
                             ></ToyRow>)}
                         </tbody>
 
