@@ -46,7 +46,7 @@ const ToyRow = ({ toy, index, handleToyDelete, handleUpdateToy }) => {
                 {subCategory}
             </td>
             <td className='md:pl-6'>{price}$</td>
-            <td className='md:pl-8'>{quantity}
+            <td className='md:pl-20'>{quantity}
             </td>
             <td>
                 <Rating

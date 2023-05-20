@@ -125,7 +125,7 @@ const MyToys = () => {
                                 <th className='md:pl-20'>Toy Name</th>
                                 <th>Sub-Category</th>
                                 <th>Price</th>
-                                <th>Quantity</th>
+                                <th>Available Quantity</th>
                                 <th className='md:pl-6'>Rating</th>
                                 <th className='md:pl-8'>Details</th>
                                 <th>Update</th>
