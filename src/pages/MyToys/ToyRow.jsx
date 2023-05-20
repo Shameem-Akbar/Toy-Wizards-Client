@@ -54,7 +54,7 @@ const ToyRow = ({ toy, index, handleToyDelete, handleUpdateToy }) => {
                     value={rating} readOnly />
             </td>
             <td>
-                <button className="btn btn-xs px-3 btn-success" onClick={() => setViewDetailsModal(true)}>View Details</button>
+                <button className="btn btn-xs px-3 btn-warning text-white" onClick={() => setViewDetailsModal(true)}>View Details</button>
                 <ReactModal
                     isOpen={viewDetailsModal}
                     onRequestClose={() => setViewDetailsModal(false)}

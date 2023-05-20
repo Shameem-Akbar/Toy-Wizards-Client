@@ -9,18 +9,21 @@ const ViewDetailsModal = ({ setViewDetailsModal, toy }) => {
     return (
         <div className="hero bg-gray-300">
             <div className="hero-content flex-row gap-6">
-                <img src={photoUrl} className="max-w-lg rounded-lg shadow-2xl" />
+                <div className='flex justify-end absolute top-3 right-3'>
+                    <button className="btn btn-primary btn-sm btn-square text-white text-xl" onClick={() => setViewDetailsModal(false)}>X</button>
+                </div>
+                <img src={photoUrl} className="max-w-xs rounded-lg shadow-2xl" />
                 <div>
-                    <h2 className="text-4xl font-bold text-center">Toy Name: {toyName}</h2>
+                    <h2 className="text-4xl font-bold text-center mb-6">Toy Name: {toyName}</h2>
                     <div className='py-1 flex justify-between mr-28'>
                         <h4 className='font-semibold'>Sub Category : {subCategory}</h4>
                         <h4 className='font-semibold'>Price : {price}$</h4>
                     </div>
-                    <div className='py-1 flex justify-between mr-8'>
+                    <div className='py-1 flex justify-between mr-12'>
                         <h4 className='font-semibold'>Available Quantity: {quantity}</h4>
                         <div className='flex gap-1'>
                             <h4 className='font-semibold'>Rating : </h4>
-                            <div className='me-1 mt-1'>
+                            <div className='mt-1'>
                                 <Rating
                                     style={{ maxWidth: 90 }}
                                     value={rating} readOnly />
@@ -34,9 +37,6 @@ const ViewDetailsModal = ({ setViewDetailsModal, toy }) => {
                         <p className='text-gray-600'>
                             {description}
                         </p>
-                    </div>
-                    <div className='flex justify-end'>
-                        <button className="btn btn-primary btn-sm text-white" onClick={() => setViewDetailsModal(false)}>Close</button>
                     </div>
                 </div>
             </div>
