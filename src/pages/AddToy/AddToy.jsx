@@ -62,9 +62,9 @@ const AddToy = () => {
                                     <span className="label-text text-base font-semibold">Sub Category</span>
                                 </label>
                                 <select className="select select-bordered" {...register("subCategory")}>
-                                    <option value="marvel">Marvel</option>
-                                    <option value="avengers">Avengers</option>
-                                    <option value="transformers">Transformers</option>
+                                    <option value="Marvel">Marvel</option>
+                                    <option value="Avengers">Avengers</option>
+                                    <option value="Transformers">Transformers</option>
                                 </select>
                             </div>
                             <div className="form-control">

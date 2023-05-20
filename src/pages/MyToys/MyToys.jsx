@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import PageTitle from '../../components/PageTitle/PageTitle';
+import { AuthContext } from '../../providers/AuthProvider';
+import ToyRow from './ToyRow';
 
 const MyToys = () => {
+
+    const { user } = useContext(AuthContext);
+    const [toys, setToys] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/my-toys/${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                setToys(data);
+            })
+    }, [user])
+
     return (
         <HelmetProvider>
             <div>
@@ -28,46 +42,11 @@ const MyToys = () => {
                         </thead>
                         <tbody>
                             {/* row 1 */}
-                            <tr>
-                                <th>
-                                    01.
-                                </th>
-                                <td>
-                                    <div className="flex items-center space-x-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle w-12 h-12">
-                                                <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="font-semibold">Hart Hagerty</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    Zemlak
-                                </td>
-                                <td>Purple</td>
-                                <td>Quantity
-                                </td>
-                                <td>Rating
-                                </td>
-                                <td>
-                                    <button className='btn btn-xs btn-success px-3'>
-                                        View Details
-                                    </button>
-                                </td>
-                                <td>
-                                    <button className='btn btn-xs btn-info px-3 text-white'>
-                                        Update
-                                    </button>
-                                </td>
-                                <td>
-                                    <button className='btn btn-xs btn-error text-white px-3'>
-                                        Delete
-                                    </button>
-                                </td>
-                            </tr>
+                            {toys?.map((toy, index) => <ToyRow
+                                key={toy._id}
+                                toy={toy}
+                                index={index}
+                            ></ToyRow>)}
                         </tbody>
 
                     </table>
