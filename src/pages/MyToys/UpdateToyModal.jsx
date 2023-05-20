@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 
 const UpdateToyModal = ({ setUpdateDetailsModal, toy, handleUpdateToy }) => {
-    const { _id } = toy;
+    const { _id, toyName, subCategory, rating, photoUrl } = toy;
 
     const { user } = useContext(AuthContext);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -35,7 +35,7 @@ const UpdateToyModal = ({ setUpdateDetailsModal, toy, handleUpdateToy }) => {
                             <label className="label">
                                 <span className="label-text text-base font-semibold">Toy Name</span>
                             </label>
-                            <input {...register("toyName", { required: true })} type="text" className="input input-bordered" />
+                            <input {...register("toyName")} type="text" className="input input-bordered" defaultValue={toyName} readOnly />
                         </div>
                         <div className="form-control hidden">
                             <input {...register("_id")} type="text" className="input input-bordered" defaultValue={_id} />
@@ -44,21 +44,18 @@ const UpdateToyModal = ({ setUpdateDetailsModal, toy, handleUpdateToy }) => {
                             <label className="label">
                                 <span className="label-text text-base font-semibold">Sub Category</span>
                             </label>
-                            <select className="select select-bordered" {...register("subCategory")}>
-                                <option value="Marvel">Marvel</option>
-                                <option value="Avengers">Avengers</option>
-                                <option value="Transformers">Transformers</option>
-                            </select>
+                            <input type='text' className="input input-bordered" {...register("subCategory")} defaultValue={subCategory} readOnly>
+                            </input>
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text text-base font-semibold">Toy Photo URL</span>
                             </label>
-                            <input {...register("photoUrl", { required: true })} type="url" className="input input-bordered" />
+                            <input {...register("photoUrl")} type="url" className="input input-bordered" defaultValue={photoUrl} />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text text-base font-semibold">Price</span>
+                                <span className="label-text text-base font-semibold">Price <span className='text-error'>(Update*)</span> </span>
                             </label>
                             <input {...register("price", { required: true })} type="number" min={1} className="input input-bordered" />
                         </div>
@@ -66,24 +63,19 @@ const UpdateToyModal = ({ setUpdateDetailsModal, toy, handleUpdateToy }) => {
                             <label className="label">
                                 <span className="label-text text-base font-semibold">Rating</span>
                             </label>
-                            <select className="select select-bordered" {...register("rating", { required: true })}>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
+                            <input type='text' className="input input-bordered" {...register("rating")} defaultValue={rating} readOnly>
+                            </input>
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text text-base font-semibold">Available Quantity</span>
+                                <span className="label-text text-base font-semibold">Available Quantity <span className='text-error'>(Update*)</span></span>
                             </label>
                             <input {...register("quantity", { required: true })} type="number" min={1} className="input input-bordered" />
                         </div>
                     </div>
                     <div className='mt-4'>
                         <label className="label">
-                            <span className="label-text text-base font-semibold">Toy Detail Description</span>
+                            <span className="label-text text-base font-semibold">Toy Detail Description <span className='text-error'>(Update*)</span></span>
                         </label>
                         <textarea {...register("description")} placeholder="Add description" className="textarea textarea-bordered textarea-lg w-full max-w" ></textarea>
                     </div>
