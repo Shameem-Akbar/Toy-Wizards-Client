@@ -20,7 +20,7 @@ const AddToy = () => {
             }
         )
         e.target.reset();
-        fetch("http://localhost:5000/seller-toys", {
+        fetch("http://localhost:5000/add-toys", {
             method: 'POST',
             headers: {
                 "content-type": "application/json"
@@ -43,13 +43,13 @@ const AddToy = () => {
                                 <label className="label">
                                     <span className="label-text text-base font-semibold">Seller Name</span>
                                 </label>
-                                <input {...register("sellerName")} type="text" className="input input-bordered" defaultValue={user.displayName} readOnly />
+                                <input {...register("sellerName")} type="text" className="input input-bordered" defaultValue={user?.displayName} readOnly />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text text-base font-semibold">Seller Email</span>
                                 </label>
-                                <input {...register("email")} type="text" className="input input-bordered" defaultValue={user.email} readOnly />
+                                <input {...register("email")} type="text" className="input input-bordered" defaultValue={user?.email} readOnly />
                             </div>
                             <div className="form-control">
                                 <label className="label">
