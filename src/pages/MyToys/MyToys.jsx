@@ -3,6 +3,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import { AuthContext } from '../../providers/AuthProvider';
 import ToyRow from './ToyRow';
+import Swal from 'sweetalert2';
 
 const MyToys = () => {
 
@@ -15,7 +16,39 @@ const MyToys = () => {
             .then(data => {
                 setToys(data);
             })
-    }, [user])
+    }, [user]);
+
+    const handleToyDelete = id => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Confirm Delete'
+        })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    fetch(`http://localhost:5000/delete-toy/${id}`, {
+                        method: 'DELETE'
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data);
+                            if (data.deletedCount > 0) {
+                                Swal.fire(
+                                    'Deleted!',
+                                    'A Toy has been deleted.',
+                                    'success'
+                                )
+                                const remaining = toys.filter(toy => toy._id !== id)
+                                setToys(remaining);
+                            }
+                        });
+                }
+            })
+    }
 
     return (
         <HelmetProvider>
@@ -30,11 +63,11 @@ const MyToys = () => {
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th className='pl-20'>Toy Name</th>
+                                <th className='md:pl-20'>Toy Name</th>
                                 <th>Sub-Category</th>
                                 <th>Price</th>
                                 <th>Quantity</th>
-                                <th>Rating</th>
+                                <th className='md:pl-6'>Rating</th>
                                 <th className='md:pl-8'>Details</th>
                                 <th>Update</th>
                                 <th>Delete</th>
@@ -46,6 +79,7 @@ const MyToys = () => {
                                 key={toy._id}
                                 toy={toy}
                                 index={index}
+                                handleToyDelete={handleToyDelete}
                             ></ToyRow>)}
                         </tbody>
 

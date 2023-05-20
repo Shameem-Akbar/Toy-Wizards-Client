@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import ViewDetailsModal from './ViewDetailsModal';
 import ReactModal from 'react-modal';
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 
-const ToyRow = ({ toy, index }) => {
+const ToyRow = ({ toy, index, handleToyDelete }) => {
 
-    const { toyName, photoUrl, subCategory, price, quantity, rating } = toy;
+    const { _id, toyName, photoUrl, subCategory, price, quantity, rating } = toy;
 
     const [viewDetailsModal, setViewDetailsModal] = useState(false);
     const customStyles = {
@@ -24,27 +26,30 @@ const ToyRow = ({ toy, index }) => {
     return (
         <tr>
             <th>
-                {index + 1}
+                {index + 1}.
             </th>
             <td>
                 <div className="flex items-center space-x-3">
                     <div className="avatar">
-                        <div className="mask mask-squircle w-12 h-12">
+                        <div className="rounded-xl w-12 h-12">
                             <img src={photoUrl} />
                         </div>
                     </div>
                     <div>
-                        <div className="font-semibold">{toyName}</div>
+                        <div className="font-semibold md:ml-1">{toyName}</div>
                     </div>
                 </div>
             </td>
-            <td>
+            <td className='md:pl-12'>
                 {subCategory}
             </td>
-            <td>{price}</td>
-            <td>{quantity}
+            <td className='md:pl-6'>{price}$</td>
+            <td className='md:pl-8'>{quantity}
             </td>
-            <td>{rating}
+            <td>
+                <Rating
+                    style={{ maxWidth: 90 }}
+                    value={rating} readOnly />
             </td>
             <td>
                 <button className="btn btn-xs px-3 btn-success" onClick={() => setViewDetailsModal(true)}>View Details</button>
@@ -67,7 +72,7 @@ const ToyRow = ({ toy, index }) => {
                 </button>
             </td>
             <td>
-                <button className='btn btn-xs btn-error text-white px-3'>
+                <button onClick={() => handleToyDelete(_id)} className='btn btn-xs btn-error text-white px-3'>
                     Delete
                 </button>
             </td>

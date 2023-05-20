@@ -20,7 +20,7 @@ const AddToy = () => {
             }
         )
         e.target.reset();
-        fetch("http://localhost:5000/add-toys", {
+        fetch("http://localhost:5000/add-toy", {
             method: 'POST',
             headers: {
                 "content-type": "application/json"
