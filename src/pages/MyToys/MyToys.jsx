@@ -9,6 +9,7 @@ const MyToys = () => {
 
     const { user } = useContext(AuthContext);
     const [toys, setToys] = useState([]);
+    const [control, setControl] = useState(false);
 
     useEffect(() => {
         fetch(`http://localhost:5000/my-toys/${user?.email}`)
@@ -16,7 +17,7 @@ const MyToys = () => {
             .then(data => {
                 setToys(data);
             })
-    }, [user]);
+    }, [user, control]);
 
     const handleToyDelete = id => {
         Swal.fire({
@@ -49,8 +50,39 @@ const MyToys = () => {
             })
     }
 
-    const handleUpdateToy = id => {
-
+    const handleUpdateToy = data => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            showCancelButton: true,
+            confirmButtonColor: '#00A300',
+            cancelButtonColor: '#E60000',
+            confirmButtonText: 'Confirm Update'
+        })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    fetch(`http://localhost:5000/update-toy/${data._id}`, {
+                        method: 'PUT',
+                        headers: {
+                            "content-type": "application/json"
+                        },
+                        body: JSON.stringify(data)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data);
+                            if (data.modifiedCount > 0) {
+                                Swal.fire({
+                                    title: 'Success!',
+                                    text: 'Toy Updated Successfully',
+                                    icon: 'success',
+                                    confirmButtonText: 'Cool'
+                                });
+                                setControl(!control);
+                            }
+                        })
+                }
+            })
     }
 
     return (
@@ -60,7 +92,7 @@ const MyToys = () => {
                 <div className='px-2 lg:px-16 py-2 md:py-8 text-white bg-primary' >
                     <h2 className='text-center text-5xl font-semibold py-5'>My Toys</h2>
                 </div>
-                <div className="overflow-x-auto w-full">
+                <div className="overflow-x-auto w-full my-5">
                     <table className="table table-normal table-zebra w-full">
                         {/* head */}
                         <thead>

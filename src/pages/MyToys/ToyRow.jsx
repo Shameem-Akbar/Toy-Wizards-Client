@@ -79,6 +79,7 @@ const ToyRow = ({ toy, index, handleToyDelete, handleUpdateToy }) => {
                     <UpdateToyModal
                         setUpdateDetailsModal={setUpdateDetailsModal}
                         toy={toy}
+                        handleUpdateToy={handleUpdateToy}
                     >
                     </UpdateToyModal>
                 </ReactModal>

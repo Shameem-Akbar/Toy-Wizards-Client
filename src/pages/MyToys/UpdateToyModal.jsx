@@ -3,24 +3,13 @@ import React, { useContext } from 'react';
 import '@smastrom/react-rating/style.css';
 import { AuthContext } from '../../providers/AuthProvider';
 import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
 
-const UpdateToyModal = ({ setUpdateDetailsModal, toy }) => {
-    const { _id, sellerName, email, toyName, photoUrl, subCategory, price, quantity, rating, description } = toy;
+const UpdateToyModal = ({ setUpdateDetailsModal, toy, handleUpdateToy }) => {
+    const { _id } = toy;
 
     const { user } = useContext(AuthContext);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-
-    const onSubmit = (data, e) => {
-        console.log(data);
-        e.target.reset();
-        // fetch("http://localhost:5000/add-toy", {
-        //     method: 'POST',
-        //     headers: {
-        //         "content-type": "application/json"
-        //     },
-        //     body: JSON.stringify(data)
-        // })
-    }
 
     return (
         <div>
@@ -28,7 +17,7 @@ const UpdateToyModal = ({ setUpdateDetailsModal, toy }) => {
                 <div className='flex justify-end absolute top-3 right-3'>
                     <button className="btn btn-primary btn-sm btn-square text-white text-xl" onClick={() => setUpdateDetailsModal(false)}>X</button>
                 </div>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit(handleUpdateToy)}>
                     <div className='grid grid-cols-1 md:grid-cols-4 md:gap-x-5 md:gap-y-4'>
                         <div className="form-control">
                             <label className="label">
