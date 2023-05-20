@@ -5,19 +5,29 @@ import { AuthContext } from '../../providers/AuthProvider';
 import ToyRow from './ToyRow';
 import Swal from 'sweetalert2';
 
+const options = [
+    { value: 'Price-Ascending' },
+    { value: 'Price-Descending' }
+]
+
 const MyToys = () => {
 
     const { user } = useContext(AuthContext);
     const [toys, setToys] = useState([]);
     const [control, setControl] = useState(false);
+    const [sortingOption, setSortingOption] = useState('');
 
     useEffect(() => {
-        fetch(`http://localhost:5000/my-toys/${user?.email}`)
+        const url = new URL(`http://localhost:5000/my-toys/${user?.email}`);
+        url.searchParams.append('sort', sortingOption);
+
+        fetch(url)
             .then(res => res.json())
             .then(data => {
                 setToys(data);
-            })
-    }, [user, control]);
+            });
+    }, [user, control, sortingOption]);
+
 
     const handleToyDelete = id => {
         Swal.fire({
@@ -85,12 +95,26 @@ const MyToys = () => {
             })
     }
 
+    const handleSortingChange = event => {
+        const selectedOption = event.target.value;
+        console.log(selectedOption);
+        setSortingOption(selectedOption);
+    }
+
     return (
         <HelmetProvider>
             <div>
                 <PageTitle title='My Toys'></PageTitle>
                 <div className='px-2 lg:px-16 py-2 md:py-8 text-white bg-primary' >
                     <h2 className='text-center text-5xl font-semibold py-5'>My Toys</h2>
+                </div>
+                <div className='flex justify-end mt-5'>
+                    <h2 className='mt-3 font-semibold mr-2'>Sort By :</h2>
+                    <select id="sorting" className="select select-bordered w-full max-w-xs" value={sortingOption} onChange={handleSortingChange}>
+                        <option value="">Default</option>
+                        <option value="highToLow">Price: High to Low</option>
+                        <option value="lowToHigh">Price: Low to High</option>
+                    </select>
                 </div>
                 <div className="overflow-x-auto w-full my-5">
                     <table className="table table-normal table-zebra w-full">
@@ -122,7 +146,7 @@ const MyToys = () => {
                     </table>
                 </div>
             </div>
-        </HelmetProvider>
+        </HelmetProvider >
     );
 };
 

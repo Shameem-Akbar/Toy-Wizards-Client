@@ -9,8 +9,10 @@ import { useForm } from "react-hook-form";
 const AddToy = () => {
 
     const { user } = useContext(AuthContext);
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, watch, formState: { errors }, setValue } = useForm();
     const onSubmit = (data, e) => {
+
+        data.price = parseFloat(data.price);
         Swal.fire(
             {
                 icon: 'success',
