@@ -105,45 +105,47 @@ const MyToys = () => {
         <HelmetProvider>
             <div>
                 <PageTitle title='My Toys'></PageTitle>
-                <div className='px-2 lg:px-16 py-2 md:py-8 text-white bg-primary' >
-                    <h2 className='text-center text-5xl font-semibold py-5'>My Toys</h2>
+                <div className='px-2 lg:px-16 bg-gray-200 py-2 md:py-5' >
+                    <h2 className='text-center text-5xl font-semibold py-5 uppercase'>My Toys</h2>
                 </div>
-                <div className='flex justify-end mt-5'>
-                    <h2 className='mt-3 font-semibold mr-2'>Sort By :</h2>
-                    <select id="sorting" className="select select-bordered w-full max-w-xs" value={sortingOption} onChange={handleSortingChange}>
-                        <option value="">Default</option>
-                        <option value="highToLow">Price: High to Low</option>
-                        <option value="lowToHigh">Price: Low to High</option>
-                    </select>
-                </div>
-                <div className="overflow-x-auto w-full my-5">
-                    <table className="table table-normal table-zebra w-full">
-                        {/* head */}
-                        <thead>
-                            <tr>
-                                <th>No.</th>
-                                <th className='md:pl-20'>Toy Name</th>
-                                <th>Sub-Category</th>
-                                <th>Price</th>
-                                <th>Available Quantity</th>
-                                <th className='md:pl-6'>Rating</th>
-                                <th className='md:pl-8'>Details</th>
-                                <th>Update</th>
-                                <th>Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {/* row 1 */}
-                            {toys?.map((toy, index) => <ToyRow
-                                key={toy._id}
-                                toy={toy}
-                                index={index}
-                                handleToyDelete={handleToyDelete}
-                                handleUpdateToy={handleUpdateToy}
-                            ></ToyRow>)}
-                        </tbody>
+                <div className='px-2 md:px-12 py-2'>
+                    <div className='flex justify-end mt-5'>
+                        <h2 className='mt-3 font-semibold mr-2 text-gray-200'>Sort By :</h2>
+                        <select id="sorting" className="select select-bordered w-full max-w-xs" value={sortingOption} onChange={handleSortingChange}>
+                            <option value="">Default</option>
+                            <option value="highToLow">Price: High to Low</option>
+                            <option value="lowToHigh">Price: Low to High</option>
+                        </select>
+                    </div>
+                    <div className="overflow-x-auto w-full my-5 border rounded-lg">
+                        <table className="table table-normal table-zebra w-full">
+                            {/* head */}
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th className='md:pl-20'>Toy Name</th>
+                                    <th>Sub-Category</th>
+                                    <th>Price</th>
+                                    <th>Available Quantity</th>
+                                    <th className='md:pl-6'>Rating</th>
+                                    <th className='md:pl-8'>Details</th>
+                                    <th>Update</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {/* row 1 */}
+                                {toys?.map((toy, index) => <ToyRow
+                                    key={toy._id}
+                                    toy={toy}
+                                    index={index}
+                                    handleToyDelete={handleToyDelete}
+                                    handleUpdateToy={handleUpdateToy}
+                                ></ToyRow>)}
+                            </tbody>
 
-                    </table>
+                        </table>
+                    </div>
                 </div>
             </div>
         </HelmetProvider >

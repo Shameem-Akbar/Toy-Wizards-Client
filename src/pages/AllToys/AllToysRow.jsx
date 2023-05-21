@@ -27,7 +27,7 @@ const AllToysRow = ({ index, toy }) => {
                 {subCategory}
             </td>
             <td>{price}$</td>
-            <td>{quantity}
+            <td className='md:pl-20'>{quantity}
             </td>
 
             <td>

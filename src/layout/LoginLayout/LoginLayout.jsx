@@ -3,6 +3,7 @@ import { Outlet, ScrollRestoration } from 'react-router-dom';
 import NavigationBar from '../../pages/shared/NavigationBar/NavigationBar';
 import Footer from '../../pages/shared/Footer/Footer';
 import { AuthContext } from '../../providers/AuthProvider';
+import banner from '../../assets/icons/banner.jpg'
 
 const LoginLayout = () => {
     const { loading } = useContext(AuthContext);
@@ -11,7 +12,7 @@ const LoginLayout = () => {
     }
 
     return (
-        <div>
+        <div style={{ backgroundColor: '#0B1320' }}>
             <NavigationBar></NavigationBar>
             <Outlet></Outlet>
             <Footer></Footer>

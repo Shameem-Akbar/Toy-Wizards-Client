@@ -7,7 +7,7 @@ import { IoIosMail } from 'react-icons/io';
 const Footer = () => {
     return (
         <div>
-            <footer className="footer p-6 md:p-10 bg-neutral text-neutral-content">
+            <footer className="footer p-6 md:p-10 bg-neutral text-neutral-content border-t border-slate-500">
                 <div>
                     <img width={"240rem"} src={logo} alt="" />
                     <h4 className='ml-2 text-lg'>Contact us with any concerns, questions or feedback.</h4>

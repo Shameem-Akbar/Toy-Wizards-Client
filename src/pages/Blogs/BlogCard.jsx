@@ -43,7 +43,7 @@ const BlogCard = ({ blog }) => {
                     <div className="flex items-center space-x-4 md:col-span-1">
                         <img className="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2" src={image} alt="" />
                         <div>
-                            <h2 className="font-semibold text-xl">{name}</h2>
+                            <h2 className="font-semibold text-xl text-gray-200">{name}</h2>
                             <div className="text-sm text-gray-500">{published_date}</div>
                         </div>
                     </div>
@@ -51,10 +51,10 @@ const BlogCard = ({ blog }) => {
                 </div>
                 <div className='md:col-span-4 md:px-5'>
                     <div className='flex justify-between'>
-                        <h2 className="text-4xl font-semibold mb-3">{blog_title}</h2>
+                        <h2 className="text-4xl font-semibold mb-3 text-gray-200">{blog_title}</h2>
 
                     </div>
-                    <p>{blog_description} </p>
+                    <p className="text-gray-400">{blog_description} </p>
                     <div className='flex justify-between mt-3 text-gray-500'>
                         <div className='flex gap-2 py-2'>
                             {

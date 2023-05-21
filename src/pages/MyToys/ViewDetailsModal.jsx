@@ -7,7 +7,7 @@ const ViewDetailsModal = ({ setViewDetailsModal, toy }) => {
     const { toyName, photoUrl, subCategory, price, quantity, rating, description } = toy;
 
     return (
-        <div className="hero bg-black text-white">
+        <div className="hero bg-[#0B1320] text-white">
             <div className="hero-content flex-row gap-6">
                 <div className='flex justify-end absolute top-3 right-3'>
                     <button className="btn btn-primary btn-sm btn-square text-white text-xl" onClick={() => setViewDetailsModal(false)}>X</button>
