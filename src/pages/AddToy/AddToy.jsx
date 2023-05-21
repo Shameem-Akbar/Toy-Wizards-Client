@@ -39,7 +39,7 @@ const AddToy = () => {
                     <h2 className='text-center text-5xl font-semibold py-5 uppercase'>Add A Toy</h2>
                 </div>
                 <div className='md:px-12 py-4'>
-                    <div className="card-body rounded-md bg-[#0e131b] border">
+                    <div className="card-body rounded-md bg-[#1a2230] border">
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className='grid grid-cols-1 md:grid-cols-4 md:gap-x-5 md:gap-y-4'>
                                 <div className="form-control">

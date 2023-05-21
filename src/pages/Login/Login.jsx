@@ -142,7 +142,7 @@ const Login = () => {
                                 <span className='px-2 text-slate-500'>OR</span>
                                 <hr style={{ width: '50%', borderBottom: '1px solid black' }} />
                             </div>
-                            <button onClick={handleGoogleSignIn} type="submit" className="mt-2 w-full btn btn-info rounded-full text-white">
+                            <button onClick={handleGoogleSignIn} type="submit" className="mt-2 w-full btn btn-neutral rounded-full text-white">
                                 <ImGoogle3 className='mr-2 text-xl'></ImGoogle3> Login with Google
                             </button>
                             <p className='text-center mt-2'><small>Don&apos;t have an account? <span className='text-primary font-semibold underline'>

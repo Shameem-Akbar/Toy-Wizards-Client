@@ -15,7 +15,7 @@ const SingleToy = () => {
 
     return (
         <HelmetProvider>
-            <div className='px-2 lg:px-20 py-2 md:py-5'>
+            <div className='px-2 lg:px-20 py-2 md:py-5 text-white'>
                 <PageTitle title="Toy"></PageTitle>
                 <div className='my-3' style={{ overflowX: 'hidden' }}>
                     <Marquee direction="left" pauseOnHover={true} gradient={true} gradientColor={[30, 30, 30]}>
@@ -35,13 +35,13 @@ const SingleToy = () => {
                             <div className="hero-content flex-row gap-12">
                                 <img src={photoUrl} className="max-w-sm rounded-lg shadow-2xl" />
                                 <div>
-                                    <h2 className="text-4xl font-bold text-center mb-6">Toy Name: {toyName}</h2>
+                                    <h2 className="text-4xl  font-bold text-center mb-6">Toy Name: {toyName}</h2>
                                     <div className='flex justify-between mr-28'>
-                                        <h3 className='font-semibold text-lg'>Sub Category : <span className='font-normal text-gray-600'>{subCategory}</span></h3>
-                                        <h3 className='font-semibold text-lg'>Price : <span className='font-normal text-gray-600'>{price}</span>$</h3>
+                                        <h3 className='font-semibold text-lg'>Sub Category : <span className='font-normal text-gray-300'>{subCategory}</span></h3>
+                                        <h3 className='font-semibold text-lg'>Price : <span className='font-normal text-gray-300'>{price}$</span></h3>
                                     </div>
                                     <div className='flex justify-between mr-12'>
-                                        <h3 className='font-semibold text-lg'>Available Quantity: <span className='font-normal text-gray-600'>{quantity}</span></h3>
+                                        <h3 className='font-semibold text-lg'>Available Quantity: <span className='font-normal text-gray-300'>{quantity}</span></h3>
                                         <div className='flex gap-1'>
                                             <h3 className='font-semibold text-lg'>Rating : </h3>
                                             <div className='mt-1'>
@@ -55,7 +55,7 @@ const SingleToy = () => {
                                         <h3 className='font-semibold text-lg'>
                                             Toy Description:
                                         </h3>
-                                        <p className='text-gray-600'>
+                                        <p className='text-gray-300'>
                                             {description}
                                         </p>
                                     </div>
@@ -64,10 +64,10 @@ const SingleToy = () => {
                                             Seller Information:
                                         </h3>
                                         <h3 className='font-semibold'>
-                                            Name: <span className='font-normal text-gray-600'>{sellerName}</span>
+                                            Name: <span className='font-normal text-gray-300'>{sellerName}</span>
                                         </h3>
                                         <h3 className='font-semibold'>
-                                            Email: <span className='font-normal text-gray-600'>{email}</span>
+                                            Email: <span className='font-normal text-gray-300'>{email}</span>
                                         </h3>
                                     </div>
                                     <button className="btn btn-primary btn-block text-white mt-6">Buy Now</button>
@@ -86,13 +86,13 @@ const SingleToy = () => {
                                 </figure>
                             </a>
                             <div className="p-3">
-                                <h2 className="card-title">
+                                <h2 className="card-title text-gray-900">
                                     VENOM!
                                     <div className="badge badge-primary text-white">NEW</div>
                                 </h2>
-                                <p className='text-gray-500 '><small>Marquee</small></p>
-                                <h2>
-                                    <span className='font-bold'>Price:</span> 200$
+                                <p className='text-slate-500 '><small>Marquee</small></p>
+                                <h2 className='text-primary'>
+                                    <span className='font-bold text-gray-600'>Price:</span> 200$
                                 </h2>
 
                             </div>
@@ -102,13 +102,13 @@ const SingleToy = () => {
                                 <figure className='rounded-t-lg'><img style={{ height: "12rem" }} src="https://i.postimg.cc/W4gqdSdG/iron-man-mark-lxxxv-marvel-gallery-63f7f3a991f99.jpg" /></figure>
                             </a>
                             <div className="p-3">
-                                <h2 className="card-title">
+                                <h2 className="card-title text-gray-900">
                                     IRON MAN!
                                     <div className="badge badge-primary text-white">NEW</div>
                                 </h2>
-                                <p className='text-gray-500 '><small>Marquee</small></p>
-                                <h2>
-                                    <span className='font-bold'>Price:</span> 250$
+                                <p className='text-slate-500 '><small>Marquee</small></p>
+                                <h2 className='text-primary'>
+                                    <span className='font-bold text-gray-600'>Price:</span> 250$
                                 </h2>
 
                             </div>

@@ -86,7 +86,7 @@ const MyToys = () => {
                                     title: 'Success!',
                                     text: 'Toy Updated Successfully',
                                     icon: 'success',
-                                    confirmButtonText: 'Cool'
+                                    confirmButtonText: 'OK'
                                 });
                                 setControl(!control);
                             }
