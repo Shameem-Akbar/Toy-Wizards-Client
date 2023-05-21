@@ -16,7 +16,8 @@ const Events = () => {
                 </p>
             </div>
             <div className='grid ml-12 md:ml-0 grid-cols-1 gap-4 md:grid-cols-4  mt-2 md:mt-8'>
-                <div className="card card-compact w-80 bg-base-100 shadow-white shadow-md">
+                <div className="card card-compact w-80 bg-base-100 shadow-white shadow-md" data-aos="zoom-in-right" data-aos-duration="2200"
+                    data-aos-easing="ease-in-out">
                     <figure><img src={event1} /></figure>
                     <div className="p-2">
                         <h2 className="card-title">DC Comic&apos;s Con 2023</h2>
@@ -27,7 +28,8 @@ const Events = () => {
                         </div>
                     </div>
                 </div>
-                <div className="card card-compact w-80 bg-base-100 shadow-white shadow-md">
+                <div className="card card-compact w-80 bg-base-100 shadow-white shadow-md" data-aos="zoom-in-right" data-aos-duration="2200"
+                    data-aos-easing="ease-in-out">
                     <figure><img src={event2} /></figure>
                     <div className="p-2">
                         <h2 className="card-title">Star War Con 2023</h2>
@@ -38,7 +40,8 @@ const Events = () => {
                         </div>
                     </div>
                 </div>
-                <div className="card card-compact w-80 bg-base-100 shadow-white shadow-md">
+                <div className="card card-compact w-80 bg-base-100 shadow-white shadow-md" data-aos="zoom-in-left" data-aos-duration="2200"
+                    data-aos-easing="ease-in-out">
                     <figure><img src={event3} /></figure>
                     <div className="p-2">
                         <h2 className="card-title">Marvel Con 2023</h2>
@@ -49,7 +52,8 @@ const Events = () => {
                         </div>
                     </div>
                 </div>
-                <div className="card card-compact w-80 bg-base-100 shadow-white shadow-md">
+                <div className="card card-compact w-80 bg-base-100 shadow-white shadow-md" data-aos="zoom-in-left" data-aos-duration="2200"
+                    data-aos-easing="ease-in-out">
                     <figure><img src={event4} /></figure>
                     <div className="p-2">
                         <h2 className="card-title">Star War-2  Con 2023</h2>
