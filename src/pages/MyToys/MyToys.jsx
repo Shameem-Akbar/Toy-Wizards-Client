@@ -18,7 +18,7 @@ const MyToys = () => {
     const [sortingOption, setSortingOption] = useState('');
 
     useEffect(() => {
-        const url = new URL(`http://localhost:5000/my-toys/${user?.email}`);
+        const url = new URL(`https://toy-wizards-server.vercel.app/my-toys/${user?.email}`);
         url.searchParams.append('sort', sortingOption);
 
         fetch(url)
@@ -40,7 +40,7 @@ const MyToys = () => {
         })
             .then((result) => {
                 if (result.isConfirmed) {
-                    fetch(`http://localhost:5000/delete-toy/${id}`, {
+                    fetch(`https://toy-wizards-server.vercel.app/delete-toy/${id}`, {
                         method: 'DELETE'
                     })
                         .then(res => res.json())
@@ -71,7 +71,7 @@ const MyToys = () => {
         })
             .then((result) => {
                 if (result.isConfirmed) {
-                    fetch(`http://localhost:5000/update-toy/${data._id}`, {
+                    fetch(`https://toy-wizards-server.vercel.app/update-toy/${data._id}`, {
                         method: 'PUT',
                         headers: {
                             "content-type": "application/json"

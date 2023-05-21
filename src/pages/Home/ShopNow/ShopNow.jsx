@@ -12,7 +12,7 @@ const ShopNow = () => {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:5000/toysBySubCategory/${activeTab}`)
+        fetch(`https://toy-wizards-server.vercel.app/toysBySubCategory/${activeTab}`)
             .then((res) => res.json())
             .then((result) => {
                 setToys(result);
