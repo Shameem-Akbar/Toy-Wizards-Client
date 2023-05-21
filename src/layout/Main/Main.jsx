@@ -13,12 +13,13 @@ const Main = () => {
         return <div className='flex justify-center mt-48'><progress className="progress progress-primary w-56"></progress></div>
     }
     return (
-        <div style={{ backgroundImage: `url(${banner})`, backgroundRepeat: 'no-repeat', height: "100vh", backgroundSize: "100vw" }}>
+        <div style={{ backgroundImage: `url(${banner})`, backgroundRepeat: 'no-repeat', backgroundSize: "100vw" }} className='h-max'>
             <PageTitle title="Home"></PageTitle>
             <NavigationBar></NavigationBar>
             <Home></Home>
-            {/* <Footer></Footer> */}
+            <Footer></Footer>
             <ScrollRestoration></ScrollRestoration>
+
         </div>
     );
 };
