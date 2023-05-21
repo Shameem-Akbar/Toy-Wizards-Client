@@ -42,4 +42,5 @@ export default {
 #ea454c
 #e96a6a
 #e88f89
+#0B1320
 */
