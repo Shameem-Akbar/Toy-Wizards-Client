@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import PageTitle from '../../../components/PageTitle/PageTitle';
 import { ImGoogle3 } from 'react-icons/im';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import register from '../../../assets/icons/register.svg'
 import { HelmetProvider } from 'react-helmet-async';
 import { AuthContext } from '../../../providers/AuthProvider';
@@ -11,10 +11,14 @@ import { GoogleAuthProvider } from 'firebase/auth';
 const Register = () => {
     const [show, setShow] = useState(false);
     const [error, setError] = useState("")
-
-    const { createUser, profileUpdate, handleGoogleLogin, setUser } = useContext(AuthContext);
-
+    const { createUser, profileUpdate, handleGoogleLogin, setUser, setLoading } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
+
+    //navigating to booking page or home page
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location?.state || '/';
+
 
     const handleRegister = event => {
         event.preventDefault();
@@ -30,11 +34,10 @@ const Register = () => {
             setError('Password must be 6 characters longer')
             return;
         }
-
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                setUser(user);
                 form.reset();
                 Swal.fire(
                     {
@@ -46,7 +49,8 @@ const Register = () => {
                 )
                 profileUpdate(name, photo)
                     .then(() => {
-                        // Navigate(from, { replace: true });
+                        navigate(from, { replace: true });
+                        setLoading(false);
                     })
                     .catch(error => console.log(error))
             })
@@ -55,13 +59,14 @@ const Register = () => {
                     setError("Email Already Exists")
                 }
             })
+
     }
 
     const handleGoogleSignIn = () => {
         handleGoogleLogin(googleProvider)
             .then(result => {
                 const loggedInUser = result.user;
-                // navigate(from, {replace: true});
+                navigate(from, { replace: true });
                 setUser(loggedInUser);
             })
             .catch(error => console.log(error))

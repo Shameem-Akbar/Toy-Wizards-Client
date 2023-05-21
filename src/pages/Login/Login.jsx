@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from 'react';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import { ImGoogle3 } from 'react-icons/im';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginImg from '../../assets/icons/login.svg'
 import { HelmetProvider } from 'react-helmet-async';
 import { AuthContext } from '../../providers/AuthProvider';
@@ -10,10 +10,15 @@ import Swal from 'sweetalert2';
 
 const Login = () => {
     const [show, setShow] = useState(false);
+    const [error, setError] = useState('');
 
-    const { login, handleGoogleLogin, setUser, passwordReset } = useContext(AuthContext);
+    const { login, handleGoogleLogin, setUser, passwordReset, setLoading } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
-    const emailRef = useRef()
+    const emailRef = useRef();
+
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location?.state || '/';
 
     const handleLogin = event => {
         event.preventDefault();
@@ -25,16 +30,19 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                form.reset();
+                navigate(from, { replace: true });
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                setError(error.message);
+                setLoading(false)
+            })
     }
 
     const handleGoogleSignIn = () => {
         handleGoogleLogin(googleProvider)
             .then(result => {
                 const loggedInUser = result.user;
-                // navigate(from, {replace: true});
+                navigate(from, { replace: true });
                 setUser(loggedInUser);
             })
             .catch(error => console.log(error))
@@ -118,6 +126,10 @@ const Login = () => {
                                             </a>
                                         </div>
                                     </div>
+                                    {
+                                        error &&
+                                        <p>{error}</p>
+                                    }
                                     <div>
                                         <button type="submit" className="w-full btn btn-primary rounded-full text-white mt-2">
                                             Login
@@ -134,7 +146,7 @@ const Login = () => {
                                 <ImGoogle3 className='mr-2 text-xl'></ImGoogle3> Login with Google
                             </button>
                             <p className='text-center mt-2'><small>Don&apos;t have an account? <span className='text-primary font-semibold underline'>
-                                <Link to='/register'>Register</Link>
+                                <Link to='/register' state={from}>Register</Link>
                             </span></small></p>
                         </div>
                     </div>

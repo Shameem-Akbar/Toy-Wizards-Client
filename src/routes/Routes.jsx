@@ -3,7 +3,6 @@ import { Navigate, createBrowserRouter } from 'react-router-dom';
 import LoginLayout from '../layout/LoginLayout/LoginLayout';
 import Main from '../layout/Main/Main';
 import PageNotFound from '../layout/PageNotFound/PageNotFound';
-import Login from '../pages/Login/login';
 import Register from '../pages/Register/Register/Register';
 import Terms from '../pages/Register/Terms/Terms';
 import About from '../pages/About/About';
@@ -13,6 +12,8 @@ import AddToy from '../pages/AddToy/AddToy';
 import MyToys from '../pages/MyToys/MyToys';
 import AllToys from '../pages/AllToys/AllToys';
 import SingleToy from '../pages/SingleToy/SingleToy';
+import PrivateRoute from './PrivateRoute';
+import Login from '../pages/Login/Login';
 
 const router = createBrowserRouter([
     {
@@ -62,7 +63,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/toy/:id',
-                element: <SingleToy></SingleToy>,
+                element: <PrivateRoute><SingleToy></SingleToy></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
             }
         ]

@@ -1,5 +1,8 @@
 import React from 'react';
 import logo from '../../../assets/icons/logo.png'
+import { FaPhoneAlt } from 'react-icons/fa';
+import { IoLocationSharp } from 'react-icons/io5';
+import { IoIosMail } from 'react-icons/io';
 
 const Footer = () => {
     return (
@@ -7,7 +10,22 @@ const Footer = () => {
             <footer className="footer p-6 md:p-10 bg-neutral text-neutral-content">
                 <div>
                     <img width={"240rem"} src={logo} alt="" />
-                    <p className='ml-2'>Toy Wizards Industries Ltd.<br />Providing Awesome Action Figures since 2022</p>
+                    <h4 className='ml-2 text-lg'>Contact us with any concerns, questions or feedback.</h4>
+                    <div className='ml-3'>
+                        <div className='flex gap-2'>
+                            <FaPhoneAlt className='mt-1 ml-0.5'></FaPhoneAlt>
+                            <h3 className='font-semibold'>+(555) 555-1234</h3>
+                        </div>
+                        <div className='flex gap-2  my-2'>
+                            <IoIosMail className='mt-1 text-lg'></IoIosMail>
+                            <h3 className='font-semibold'>info@toywizards.com</h3>
+                        </div>
+                        <div className='flex gap-2'>
+                            <IoLocationSharp className='mt-1 text-lg'></IoLocationSharp>
+                            <h3 className='font-semibold'>Street: 04, Los Angeles, America</h3>
+                        </div>
+
+                    </div>
                 </div>
                 <div className='footer grid-cols-2'>
                     <div>

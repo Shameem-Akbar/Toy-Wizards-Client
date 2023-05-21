@@ -7,12 +7,12 @@ const ViewDetailsModal = ({ setViewDetailsModal, toy }) => {
     const { toyName, photoUrl, subCategory, price, quantity, rating, description } = toy;
 
     return (
-        <div className="hero bg-gray-300">
+        <div className="hero bg-black text-white">
             <div className="hero-content flex-row gap-6">
                 <div className='flex justify-end absolute top-3 right-3'>
                     <button className="btn btn-primary btn-sm btn-square text-white text-xl" onClick={() => setViewDetailsModal(false)}>X</button>
                 </div>
-                <img src={photoUrl} className="max-w-xs rounded-lg shadow-2xl" />
+                <img src={photoUrl} className="max-w-xs rounded-lg border shadow-slate-50 shadow-sm" />
                 <div>
                     <h2 className="text-4xl font-bold text-center mb-6">Toy Name: {toyName}</h2>
                     <div className='py-1 flex justify-between mr-28'>
@@ -34,7 +34,7 @@ const ViewDetailsModal = ({ setViewDetailsModal, toy }) => {
                         <h4 className='font-semibold'>
                             Description:
                         </h4>
-                        <p className='text-gray-600'>
+                        <p className='text-gray-300'>
                             {description}
                         </p>
                     </div>
