@@ -93,6 +93,7 @@ const BlogCard = ({ blog }) => {
             </div>
             <hr className='md:mx-52' />
         </div>
+        //done
     );
 };
 
